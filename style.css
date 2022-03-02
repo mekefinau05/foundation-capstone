@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(52, 59, 117);
+    color: white;
+}
+
+
+#home {
+    color: white;
+    font-family: fantasy;
+    font-weight:bold;
+}
+
+
+#buttons {
+    font-weight: bold;
+    
+}
+
+#signup-form {
+    display: flexbox;
+    flex-direction: column;   
+}
+
+a {
+    text-decoration: none;  
+}
+
+#link {
+    color:aliceblue;
+}
