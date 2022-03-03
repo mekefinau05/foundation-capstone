@@ -1,17 +1,42 @@
-const baseURL = `http://localhost:4000/`
+const baseURL = `http://localhost:4002/`
 
-const submitButton = document.querySelector('#submit')
+
 const searchButton = document.querySelector('#search')
-// const apptButton = document.querySelector('#appointments')
-// const priceButton = document.querySelector('#prices')
-// const styleButton = document.querySelector('#styles')
+const scheduleButton = document.querySelector('#scheduled')
+
+const editButton = document.querySelector('#edit')
+const deleteButton = document.querySelector('#delete')
+
+scheduleButton.addEventListener('click', ) 
+searchButton.addEventListener('click', ) 
 
 
 
+document.getElementById("scheduled").onclick = function () {
+    axios.post("http://localhost:4002")
+        .then(res (res))
+        .catch(err => (err))
+
+}
+
+document.getElementById("search").onclick = function () {
+    axios.get("http://localhost:4002")
+        .then(res (res))
+        .catch(err => (err))
+}
+
+document.getElementById("edit").onclick = function () {
+    axios.put("http://localhost:4002")
+        .then(res (res))
+        .catch(err => (err))
+}
+
+document.getElementById("delete").onclick = function () {
+    axios.delete("http://localhost:4002")
+        .then(res (res))
+        .catch(err => (err))
+}
+    
 
 
-submitButton.addEventListener('click', ) //confirm username and password
-searchButton.addEventListener('click', ) //get data for all appointments on date selected
-// apptButton.addEventListener('click', ) 
-// priceButton.addEventListener('click', ) 
-// styleButton.addEventListener('click', ) 
+

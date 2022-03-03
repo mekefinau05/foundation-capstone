@@ -1,7 +1,23 @@
-const express = require('express')
+require('dotenv').config()
+const express = require("express");
+const cors = require("cors");
+const ctrl = require('./controller.js')
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+const port = `http://localhost:4002/`
 
-app.get()
+app.use(cors());
+
+app.use(express.json()); 
+
+
+// appointment html
+app.post("api/scheduled", ctrl.scheduleAppointment)
+app.get("api/allAppt", ctrl.getAppointment)
+app.put("api/editAppt", ctrl.editAppointment)
+app.delete("api/deleteAppt", ctrl.deleteAppointment)
+
+
+app.listen(4002, () => console.log("Server running on 4002"));
+
