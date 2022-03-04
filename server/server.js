@@ -1,4 +1,4 @@
-require('dotenv').config()
+//require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
 const ctrl = require('./controller.js')
@@ -13,10 +13,12 @@ app.use(express.json());
 
 
 // appointment html
-app.post("api/scheduled", ctrl.scheduleAppointment)
+app.post("api/appointments", ctrl.scheduleAppointment)
 app.get("api/allAppt", ctrl.getAppointment)
-app.put("api/editAppt", ctrl.editAppointment)
-app.delete("api/deleteAppt", ctrl.deleteAppointment)
+
+//appointment card
+// app.put("api/editAppt", ctrl.editAppointment)
+// app.delete("api/deleteAppt", ctrl.deleteAppointment)
 
 
 app.listen(4002, () => console.log("Server running on 4002"));
