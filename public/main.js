@@ -7,24 +7,77 @@ const scheduleButton = document.querySelector('#scheduled')
 const editButton = document.querySelector('#edit')
 const deleteButton = document.querySelector('#delete')
 
-// scheduleButton.addEventListener('click', ) 
-// searchButton.addEventListener('click', ) 
+//variables
+const timeSelect = document.querySelector('#timeSelect')
+const monthSelect = document.querySelector('#monthSelect')
+const daySelect = document.querySelector('#daySelect')
 
+let selectedTimeOption = timeSelect.options[timeSelect.selectedIndex].innerHTML
+let monthSelectedOption = monthSelect.options[monthSelect.selectedIndex].innerHTML
+let daySelectedOption = daySelect.options[daySelect.selectedIndex].innerHTML
 
-
-document.getElementById("scheduled").onclick = function () {
-    axios.post("http://localhost:4002/api/appointments")
-        .then(res => addToView([res.data])) 
-
-        .catch(err => (err))
-
+let appointment = {
+    day: daySelectedOption,
+    month: monthSelectedOption,
+    time: selectedTimeOption
 }
 
-document.getElementById("search").onclick = function () {
+timeSelect.addEventListener('change', () => {
+    selectedTimeOption = timeSelect.options[timeSelect.selectedIndex].innerHTML
+    appointment = {
+        day: daySelectedOption,
+        month: monthSelectedOption,
+        time: selectedTimeOption
+    }
+    // console.log(selectedTimeOption.innerHTML)
+})
+
+monthSelect.addEventListener('change', () => {
+    monthSelectedOption = monthSelect.options[monthSelect.selectedIndex].innerHTML
+    appointment = {
+        day: daySelectedOption,
+        month: monthSelectedOption,
+        time: selectedTimeOption
+    }
+})
+
+daySelect.addEventListener('change', () => {
+    daySelectedOption = daySelect.options[daySelect.selectedIndex].innerHTML
+    appointment = {
+        day: daySelectedOption,
+        month: monthSelectedOption,
+        time: selectedTimeOption
+    }
+})
+
+
+
+const createAppt = (appointment) => {
+    // console.log(appointment)
+    axios.post("http://localhost:4002/api/appointments", appointment)
+        .then(res => {
+             
+            console.log(res.data)
+        }) 
+       .catch(err => (console.log(err)))
+}
+
+
+// scheduleButton.addEventListener('click', createAppt()) 
+
+const getAppt = () => {
     axios.get("http://localhost:4002/api/appointments")
-        .then(res => addToView([res.data]))
-        .catch(err => (err))
+    .then(res => console.log(res.data))
+    .catch(err => (console.log(err)))
 }
+
+    
+
+// document.getElementById("search").onclick = function () {
+//     axios.get("http://localhost:4002/api/appointments")
+//         .then(res => addToView([res.data]))
+//         .catch(err => (err))
+// }
 
 // document.getElementById("edit").onclick = function () {
 //     axios.put("http://localhost:4002/api/appointments/edit")

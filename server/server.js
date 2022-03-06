@@ -13,8 +13,8 @@ app.use(express.json());
 
 
 // appointment html
-app.post("api/appointments", ctrl.scheduleAppointment)
-app.get("api/allAppt", ctrl.getAppointment)
+app.post("/api/appointments", ctrl.scheduleAppointment)
+app.get("/api/appointments", ctrl.getAppointment)
 
 //appointment card
 // app.put("api/editAppt", ctrl.editAppointment)
