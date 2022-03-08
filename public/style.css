@@ -3,11 +3,15 @@ body {
     color: white;
 }
 
+#page {
+    max-width: 500px;
+    margin: auto;
+}
 
 #home {
     color: white;
     font-family: fantasy;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 
@@ -29,3 +33,61 @@ a {
 #link {
     color:aliceblue;
 }
+
+#apptContainer {
+    height: 500px;
+    width: 250px;
+    margin: auto;
+    background-color: bisque;
+    /* display: flex; */
+    
+}
+
+.appt-card{
+    display: flex;
+    background-color: lightgray;
+    border-style: double;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    margin: 30px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+
+.appt-card h5{
+    color: black;
+}
+
+.appt-card h4 {
+    color: black;
+}
+
+
+.style {
+    background-color: antiquewhite;
+    color: grey;
+    word-wrap: normal;
+    max-height: 300px;
+    max-width: 300px;
+    display: flexbox;
+    margin: 30px;
+    padding: 10px;
+}
+
+table {
+    margin: auto;
+    background-color: aliceblue;
+    border: 1px black;
+}
+
+#sec {
+    background-color: antiquewhite;
+    height: 550px;
+    width: 300px;
+    margin: auto;
+    color: black;
+    
+}
+

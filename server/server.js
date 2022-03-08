@@ -20,6 +20,10 @@ app.get("/api/appointments", ctrl.getAppointment)
 // app.put("api/editAppt", ctrl.editAppointment)
 // app.delete("api/deleteAppt", ctrl.deleteAppointment)
 
+//login
+app.post("/api/login", ctrl.register)
+app.post("/api/login", ctrl.login)
+
 
 app.listen(4002, () => console.log("Server running on 4002"));
 

@@ -9,19 +9,32 @@
     <title>Lashed.af Appointments</title>
 </head>
 <body>
+    <div id="page">
+ <header>     
     <h1 id="home"> <a id="link" href="home.html">Lashed.af</a></h1>
-    
-    <!-- <div id="buttons">
-        <button class="menu" id="prices">
-            <a href="prices.html">Prices</a></button>
+</header>     
 
-        <button class="menu" id="styles">
-            <a href="styles.html">Styles</a></button>
-    </div> -->
 
     <form id="datePick">    
+        Month
+        <select id="monthSelect" >
+            <option id="month"></option>
+            <option id="Jan">Jan</option>
+            <option id="Feb">Feb</option>
+            <option id="Mar">Mar</option>
+            <option id="Apr">Apr</option>
+            <option id="May">May</option>
+            <option id="Jun">Jun</option>
+            <option id="Jul">Jul</option>
+            <option id="Aug">Aug</option>
+            <option id="Sep">Sep</option>
+            <option id="Oct">Oct</option>
+            <option id="Nov">Nov</option>
+            <option id="Dec">Dec</option>
+        </select>
     Day
-    <select id="daySelect" placeholder="day">
+    <select id="daySelect">
+        <option id="day"></option>
         <option id="1">1</option>
         <option id="2">2</option>
         <option id="3">3</option>
@@ -55,24 +68,10 @@
         <option id="31">31</option>
     </select>
 
-    Month
-    <select id="monthSelect" placeholder="month">
-        <option id="Jan">Jan</option>
-        <option id="Feb">Feb</option>
-        <option id="Mar">Mar</option>
-        <option id="Apr">Apr</option>
-        <option id="May">May</option>
-        <option id="Jun">Jun</option>
-        <option id="Jul">Jul</option>
-        <option id="Aug">Aug</option>
-        <option id="Sep">Sep</option>
-        <option id="Oct">Oct</option>
-        <option id="Nov">Nov</option>
-        <option id="Dec">Dec</option>
-    </select>
 
     Time
     <select id="timeSelect">
+        <option id="time"></option>
         <option id="Any">Anytime</option>
         <option id="7am">7am</option>
         <option id="8am">8am</option>
@@ -87,13 +86,17 @@
     </select>
 
     <div id="buttons">
-        <button id="search" type="button" onclick="getAppt()" >Search</button>
+        <button id="search" type="button" onclick="getAppt()">Search</button>
         <button type="button" id="scheduled" onclick="createAppt(appointment)">Submit</button>
     </div>
     </form>
 
     
-
+    <div id="apptContainer"></div>
+   
+    
+    
+</div>
     <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>
