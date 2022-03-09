@@ -9,11 +9,16 @@ const sFirstName = document.querySelector("#signup-firstName");
 const sLastName = document.querySelector("#signup-lastName");
 const sPassword = document.querySelector("#signup-password");
 
-let newUsername = sUsername.textContent
-let newEmail = sEmailAddress.textContent
-let newFName = sFirstName.textContent
-let newLName = sLastName.textContent
-let newPWord = sPassword.textContent
+const lUsername = document.querySelector('#login-username')
+const lPassword = document.querySelector('#login-password')
+
+let newUsername = sUsername.innerHTML
+let newEmail = sEmailAddress.innerHTML
+let newFName = sFirstName.innerHTML
+let newLName = sLastName.innerHTML
+let newPWord = sPassword.innerHTML
+
+ 
 
 let user = {
   username: newUsername,
@@ -23,8 +28,34 @@ let user = {
   password: newPWord,
 };
 
-sUsername.addEventListener("", () => {
-  newUsername = sUsername.textContent;
+let loginUser = {
+  username: lUsername.value,
+  password: lPassword.value
+}
+
+
+lUsername.addEventListener("change", () => {
+  // console.dir(lUsername)
+  // console.log(lUsername)
+  loginUser = {
+    username: lUsername.value,
+    password: lPassword.value
+  }
+})
+
+lPassword.addEventListener("change", () => {
+  // console.dir(lUsername)
+  // console.log(lUsername)
+  loginUser = {
+    username: lUsername.value,
+    password: lPassword.value
+  }
+})
+
+
+
+sUsername.addEventListener("change", () => {
+  newUsername = sUsername.innerHTML;
   user = {
     username: newUsername,
     email: newEmail,
@@ -35,7 +66,7 @@ sUsername.addEventListener("", () => {
 });
 
 sEmailAddress.addEventListener("change", () => {
-  newEmail = sEmailAddress.textContent;
+  newEmail = sEmailAddress.innerHTML;
   user = {
     username: newUsername,
     email: newEmail,
@@ -46,7 +77,7 @@ sEmailAddress.addEventListener("change", () => {
 });
 
 sFirstName.addEventListener("change", () => {
-  newFName = sFirstName.textContent;
+  newFName = sFirstName.innerHTML;
   user = {
     username: newUsername,
     email: newEmail,
@@ -57,7 +88,7 @@ sFirstName.addEventListener("change", () => {
 });
 
 sLastName.addEventListener("change", () => {
-  newLName = sLastName.textContent;
+  newLName = sLastName.innerHTML;
   user = {
     username: newUsername,
     email: newEmail,
@@ -67,8 +98,8 @@ sLastName.addEventListener("change", () => {
   };
 });
 
-sPassword.addEventListener("change", () => {
-  newPWord = sPassword.textContent;
+sPassword.addEventListener("typed", () => {
+  newPWord = sPassword.innerHTML;
   user = {
     username: newUsername,
     email: newEmail,
@@ -81,10 +112,31 @@ sPassword.addEventListener("change", () => {
 const createAccount = (user) => {
   // console.log(appointment)
   axios
-    .post("http://localhost:4002/api/login", user)
-    .then((res) => {
-      console.log(res.data);
-      createAccount(res.data);
-    })
-    .catch((err) => console.log(err));
+  .post("http://localhost:4002/api/register", user)
+  .then((res) => {
+    console.log(res.data);
+    createAccount(res. data);
+  })
+  .catch((err) => console.log(err));
 };
+
+const homescreen = "http://127.0.0.1:5500/public/home.html?"
+const navigate = (pathName) => {
+  
+}
+
+const login = async(loginUser) => {
+  console.log(loginUser)
+  await axios
+  .post("http://localhost:4002/api/login", loginUser)
+  .then((res) => {
+    if(res.data) {
+      // navigate(homescreen)
+      window.location.replace(homescreen)
+    }else {
+      console.log('Please check username or password')
+    }
+  })
+  .catch((err) => console.log(err));
+}
+

@@ -2,6 +2,8 @@
 const express = require("express");
 const cors = require("cors");
 const ctrl = require('./controller.js')
+const appointments = require('./db.json')
+
 
 const app = express();
 
@@ -18,10 +20,10 @@ app.get("/api/appointments", ctrl.getAppointment)
 
 //appointment card
 // app.put("api/editAppt", ctrl.editAppointment)
-// app.delete("api/deleteAppt", ctrl.deleteAppointment)
+app.delete("api/deleteAppt", ctrl.deleteAppointment)
 
 //login
-app.post("/api/login", ctrl.register)
+app.post("/api/register", ctrl.register)
 app.post("/api/login", ctrl.login)
 
 

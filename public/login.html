@@ -9,6 +9,7 @@
     <title>Lashed.af Login</title>
   </head>
   <body>
+    <div id="page">
     <h1 id="home">Lashed.af</h1>
 
     <main>
@@ -21,7 +22,7 @@
           <input type="password" id="login-password" placeholder="password" />
 
           <div>
-            <button id="loginSubmit">Submit</button>
+            <button type="button" id="loginSubmit" onclick="login(loginUser)" >Submit</button>
           </div>
         </form>
       </section>
@@ -53,13 +54,13 @@
           />
 
           <div>
-            <button id="registerSubmit">Submit</button>
+            <button type="submit" id="registerSubmit">Submit</button>
           </div>
         </form>
       </section>
     </main>
 
-
+    </div>
     <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="login.js"></script>
   </body>

@@ -1,0 +1,32 @@
+[
+    {
+      "month": "Mar",
+      "day": 1,
+      "time": "7am"
+    },
+    {
+      "month": "Apr",
+      "day": 12,
+      "time": "9am"
+    },
+    {
+     "month": "Mar", 
+     "day": 3, 
+     "time": "10am" 
+    },
+    {
+        "month": "Apr",
+        "day": 17,
+        "time": "11am"
+      },
+      {
+        "month": "May",
+        "day": 26,
+        "time": "9am"
+      },
+      {
+        "month": "Jun",
+        "day": 5,
+        "time": "9am"
+      }
+  ]

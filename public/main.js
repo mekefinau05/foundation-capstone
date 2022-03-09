@@ -6,7 +6,7 @@ const searchButton = document.querySelector("#search");
 const scheduleButton = document.querySelector("#scheduled");
 
 // const editButton = document.querySelector("#edit");
-// const deleteButton = document.querySelector("#delete");
+const deleteButton = document.querySelector("#delete");
 
 //variables
 const timeSelect = document.querySelector("#timeSelect");
@@ -68,10 +68,18 @@ function scheduleAppt(appt) {
     apptContainer.innerHTML = ''
   const appointmentCard = document.createElement("div");
   appointmentCard.classList.add("appt-card");
-  appointmentCard.innerHTML = `<h5>${appt.month}</h5> <h5>${appt.day}</h5> <h5>${appt.time}</h5>`;
+  appointmentCard.innerHTML = `
+  <div id="date"> 
+  <h5>${appt.month}</h5> <h5>${appt.day}</h5> <h5>${appt.time}</h5> 
+  </div>
+  <div id=cardButtons>
+  <button class="cardButton" id="delete" onclick="delete(${appointmentCard})">Delete</button>
+  <button class="cardButton" id="edit" onclick="edit(${appointmentCard}">Edit</button>
+  </div>
+  `;
   apptContainer.appendChild(appointmentCard);
 
-  // appointmentCard.setAttribute('style',  `color:blue`)
+  
 }
 
 let filteredAppt = null;
@@ -82,11 +90,10 @@ const getAppt = () => {
     .get("http://localhost:4002/api/appointments")
     .then((res) => {
       appointments = res.data;
-    //   console.log(appointments);
       filteredAppt = appointments.filter(
-        (item) => item.month == monthSelectedOption
+        (item) => item.month === monthSelectedOption 
       );
-    //   console.log(filteredAppt);
+    
       getAppts(filteredAppt);
     })
     .catch((err) => console.log(err));
@@ -104,14 +111,4 @@ function getAppts(appt) {
   })
 }
 
-// document.getElementById("edit").onclick = function () {
-//     axios.put("http://localhost:4002/api/appointments/edit")
-//         .then(res (res))
-//         .catch(err => (err))
-// }
 
-// document.getElementById("delete").onclick = function () {
-//     axios.delete("http://localhost:4002/api/appointments/delete")
-//         .then(res (res))
-//         .catch(err => (err))
-// }
