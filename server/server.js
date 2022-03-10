@@ -20,7 +20,7 @@ app.get("/api/appointments", ctrl.getAppointment)
 
 //appointment card
 // app.put("api/editAppt", ctrl.editAppointment)
-app.delete("api/deleteAppt", ctrl.deleteAppointment)
+app.delete("/api/deleteAppt/:id", ctrl.deleteAppointment)
 
 //login
 app.post("/api/register", ctrl.register)

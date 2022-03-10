@@ -2,6 +2,8 @@ const appointments = require("./db.json");
 
 const bcrypt = require("bcryptjs");
 
+let globalId = 7
+
 let users = [
   {
     username: "sione",
@@ -29,10 +31,18 @@ let users = [
 module.exports = {
   scheduleAppointment: (req, res) => {
     console.log(req.body);
-    appointments.push(req.body);
+    let bodyObj = {
+      month: req.body.month,
+      day: +req.body.day,
+      time: req.body.time,
+      id: globalId
+    }
+    appointments.push(bodyObj);
     console.log(appointments);
 
-    res.status(200).send(req.body);
+    globalId++
+
+    res.status(200).send(appointments);
   },
   getAppointment: (req, res) => {
     res.status(200).send(appointments);
@@ -66,7 +76,10 @@ module.exports = {
   
   //appointment card
   deleteAppointment : (req, res) => {
-  
+    // console.log('delete endpoint hit')
+    let index = appointments.findIndex(elem => elem.id === +req.params.id)
+        appointments.splice(index, 1)
+        res.status(200).send(appointments)
   }
 };
 

@@ -59,10 +59,28 @@ const createAppt = (appointment) => {
     .post("http://localhost:4002/api/appointments", appointment)
     .then((res) => {
       console.log(res.data);
-      scheduleAppt(res.data);
+      displayAppt(res.data);
     })
     .catch((err) => console.log(err));
 };
+
+const deleteAppt = (id) => {
+  // console.log('front end delete hit')
+  axios
+    .delete(`http://localhost:4002/api/deleteAppt/${id}`)
+    .then((res) => {
+      console.log(res.data);
+     displayAppt(res.data) 
+    })
+    .catch((err) => console.log(err));
+};
+
+function displayAppt(arr) {
+  apptContainer.innerHTML = ``
+  for (let i = 0; i < arr.length; i++) {
+      scheduleAppt(arr[i])
+  }
+}
 
 function scheduleAppt(appt) {
     apptContainer.innerHTML = ''
@@ -73,16 +91,30 @@ function scheduleAppt(appt) {
   <h5>${appt.month}</h5> <h5>${appt.day}</h5> <h5>${appt.time}</h5> 
   </div>
   <div id=cardButtons>
-  <button class="cardButton" id="delete" onclick="delete(${appointmentCard})">Delete</button>
-  <button class="cardButton" id="edit" onclick="edit(${appointmentCard}">Edit</button>
+  <button class="cardButton" id="delete" onclick="deleteAppt(${appt.id})"
+  >Delete</button>
+  <button class="cardButton" id="edit" onclick="edit(${appt.id}">Edit</button>
   </div>
   `;
+
   apptContainer.appendChild(appointmentCard);
 
   
 }
 
 let filteredAppt = null;
+
+const getAllAppt = () => {
+  console.log(appointment);
+  axios
+    .get("http://localhost:4002/api/appointments")
+    .then((res) => {
+      appointments = res.data;
+        displayAppt(res.data)
+      
+    })
+    .catch((err) => console.log(err));
+};
 
 const getAppt = () => {
   console.log(appointment);
@@ -112,3 +144,4 @@ function getAppts(appt) {
 }
 
 
+// getAllAppt()

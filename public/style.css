@@ -1,13 +1,17 @@
 body {
     background-color: rgb(52, 59, 117);
     color: white;
+    
 }
 
-#page {
+.content {
     max-width: 500px;
     margin: auto;
+    padding: 10px;
 }
 
+
+/* home.html */
 #home {
     color: white;
     font-family: fantasy;
@@ -16,8 +20,7 @@ body {
 
 
 #buttons {
-    font-weight: bold;
-    
+    font-weight: bold;  
 }
 
 #signup-form {
@@ -34,13 +37,17 @@ a {
     color:aliceblue;
 }
 
+#homePic img{
+   max-width: fit-content; 
+   max-height: fit-content;
+}
+
+
+/* appointment.html */
 #apptContainer {
     height: 500px;
     width: 250px;
     margin: auto;
-    /* background-color: bisque; */
-    /* display: flex; */
-    
 }
 
 .appt-card{
@@ -61,6 +68,7 @@ a {
 
 .appt-card h4 {
     color: black;
+    
 }
 
 
@@ -112,3 +120,48 @@ table {
     justify-content: center;
 
 }
+
+
+/* style.html */
+#classics {
+    background-image: url("https://media.istockphoto.com/vectors/fresh-brown-womans-eye-vector-id835330420?k=6&m=835330420&s=612x612&w=0&h=VBraGZ8OsJ5qVSvF78vP3OzvEN47qhyvVKzzgc9fuoo=");
+    height: 220px;
+    max-width: 500px;
+    color:grey;
+
+}
+
+#hybrids {
+    background-image: url("https://clipground.com/images/clipart-eyebrows-8.jpg");
+    height: 220px;
+    max-width: 500px;
+    color:grey;
+    
+}
+
+#volumes {
+    background-image: url("https://i.pinimg.com/originals/2d/83/08/2d8308dd53a520a3ae85c15234651ab8.jpg");
+    height: 200px;
+    max-width: 500px;
+    color:grey;
+}
+
+.diffStyle {
+    box-shadow: darkgray;
+    border-radius: 2%;
+}
+
+.diffStyle p {
+    font-size: large;
+    font-weight: bold;
+}
+
+
+/* footer */
+footer {
+    margin: 50px 30px 30px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
